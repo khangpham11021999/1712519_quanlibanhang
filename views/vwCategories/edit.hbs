@@ -1,0 +1,33 @@
+<div class="card">
+  <h5 class="card-header d-flex justify-content-between">
+      Edit Category
+  </h5>
+  <div class="card-body">
+      <form method="post">
+
+        <div  class="form-group">
+            <label for="CatID">#</label>
+            <input  class="form-control" id="CatID"  readonly
+              name="CatID"  value="{{this.category.CatID}}" >
+          </div>
+
+          <div  class="form-group">
+            <label for="CatName">Category</label>
+            <input  class="form-control" 
+              name="CatName" autofocus value="{{this.category.CatName}}" >
+          </div>
+        <a class="btn btn-success" href="/admin/categories/list" role="button">
+          <i title="Back to list" class="fa fa-backward" aria-hidden="true"></i>
+        </a>
+
+        <button title="Add category" formaction="/admin/categories/del" type="submit" class="btn btn-danger" title="Remove Category">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+
+        <button title="Add category" formaction="/admin/categories/update" type="submit" class="btn btn-primary">
+          Save
+        </button>
+        
+      </form>
+  </div>
+</div>

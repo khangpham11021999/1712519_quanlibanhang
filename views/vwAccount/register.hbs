@@ -1,0 +1,123 @@
+{{#section 'js'}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" 
+          integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+  </script>
+
+  <script>
+    jQuery('#txtDOB').datetimepicker({
+           format:'d/m/Y',
+           timepicker:false
+    });
+
+    $(document).ready(function(){
+      $("#txtUsername").on("blur",function(){
+        const len=$(this).val().trim().length;
+        const p=$(this).next();
+        p.addClass("d-none");
+        if(len===0)
+        {
+          p.removeClass("d-none");
+        }
+      });
+      $("#txtPassword").on("blur",function(){
+        const len=$(this).val().trim().length;
+        const p=$(this).next();
+        p.addClass("d-none");
+        if(len<6){
+          p.removeClass("d-none");
+        }
+      })
+      $("#txtConfirm").on("blur",function(){
+        const password=$("#txtPassword").val();
+        const rs=password===$(this).val();
+        const p=$(this).next();
+        p.addClass("d-none");
+        if(!rs)
+        {
+           p.removeClass("d-none");
+        }
+      })
+      $("#txtName").on("blur",function(){
+        const len=$(this).val().trim().length;
+        const p=$(this).next();
+        p.addClass("d-none");
+        if(len===0)
+        {
+          p.removeClass("d-none");
+        }
+      });
+      $("#txtEmail").on("blur",function(){
+
+          const emailRegex= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+          const emailVal=$(this).val();
+          const rs=emailRegex.test(emailVal);
+          const p=$(this).next();
+          p.addClass("d-none");
+
+          if(!rs){
+            p.removeClass("d-none");
+          }
+      });
+      $('p.errMes').delay(3000).fadeOut('slow');
+  })
+  </script>
+{{/section}}
+
+{{#section 'css'}}
+  <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css" 
+        integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+{{/section}}
+
+
+<div class="card">
+  <h5 class="card-header d-flex justify-content-between">
+      Register
+      {{#if err}}
+        <p class="text-warning errMes" >{{err}}</p>
+      {{/if}}
+  </h5>
+  <div class="card-body">
+      <form method="post" action="" id="formRegister" >
+          <div  class="form-group">
+            <label for="txtUsername">Username</label>
+            <input type="text" class="form-control" id="txtUsername" name="username" autofocus >
+            <p class="d-none required text-danger" style="font-size: 12px;">This field is required</p>
+          </div>
+        <div  class="form-group">
+            <label for="txtPassword">Password</label>
+            <input type="password" class="form-control" id="txtPassword" name="password"  >
+            <p class="d-none required text-danger" style="font-size: 12px;">At least 6 real digits,not include space</p>
+          </div>
+        
+        <div  class="form-group">
+            <label for="txtConfirm">Confirm</label>
+            <input type="password" class="form-control" id="txtConfirm" name="confirm"  >
+            <p class="d-none required text-danger" style="font-size: 12px;">Incorrect password to confirm</p>
+
+        </div>
+
+        <div  class="form-group">
+            <label for="txtName">Name</label>
+            <input type="text" class="form-control" id="txtName" name="name"  >
+            <p class="d-none required text-danger" style="font-size: 12px;">This field is required</p>
+        </div>
+
+         <div  class="form-group">
+            <label for="txtEmail">Email</label>
+            <input type="text" class="form-control" id="txtEmail" name="email"  >
+            <p class="d-none required text-danger" style="font-size: 12px;">Invalid email</p>
+
+        </div>
+
+        <div  class="form-group">
+            <label for="txtDOB">Date of birth</label>
+            <input type="text" class="form-control" id="txtDOB" name="dob"  >
+        </div>
+
+        <input class="submit-btn btn btn-primary float-right" type="submit" value="Register">
+      </form>
+  </div>
+</div>

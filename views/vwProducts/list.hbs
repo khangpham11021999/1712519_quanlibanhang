@@ -1,0 +1,47 @@
+<div class="card">
+  <h5 class="card-header d-flex justify-content-between">
+      Products
+      <a class="btn btn-outline-success" href="/admin/categories/add" role="button">
+          <i class="fa fa-check" aria-hidden="true"></i>
+          Add Category
+      </a>
+   </h5>
+  <div class="card-body">
+      {{#if this.empty}}
+        <p>Không có dữ liệu</p>
+      {{else}}
+            <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">ProName</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each this.products}}
+                <tr>
+                <th scope="row">{{ProID}}</th>
+                <td>{{ProName}}</td>
+                <td>{{Price}}</td>
+                <td>{{Quantity}}</td>
+                <td class="text-right">
+                    <a name="" id="" class="btn btn-primary" href="#" role="button">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+                    {{!-- <a name="" id="" class="btn btn-danger" href="#" role="button">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a> --}}
+                </td>
+                </tr>
+            {{/each}}
+            
+        </tbody>
+    </table>
+      {{/if}}
+
+    
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qlbh app</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    {{{_sections.css}}}
+
+</head>
+<body>
+    {{> navbar}}
+    <div class="container mt-4">
+        <!-- Context here -->
+        <div class="row">
+            <div class="col-sm-3">
+                {{#if lcIsAdmin}}
+                 <div class="card">
+                        <h5 class="card-header">Entities</h5>
+                        <div class="list-group list-group-flush">
+                           {{#each lcListTable}}
+                                <a href="/admin/{{name_table}}/list?name_table={{name_table}}" class="list-group-item list-group-item-action {{#if isActiveEntity}}active{{/if}}  {{#if isActive}}active{{/if}} ">
+                                        {{name_table}}
+                                </a>
+                           {{/each}}
+                        </div>
+                    </div>
+                   
+                {{else}}
+                    <div class="card">
+                        <h5 class="card-header">Categories</h5>
+                        <div class="list-group list-group-flush">
+                            {{#each lcCategories}}
+                                    <a href="/products/byCat/{{CatID}}" class="list-group-item list-group-item-action {{#if isActive}}active{{/if}} ">
+                                        {{CatName}}
+                                        {{#if number_of_products}}
+                                            <span class="badge badge-danger float-right">{{number_of_products}}</span>
+                                        {{/if}}
+                                    </a>
+                            {{/each}}
+                        </div>
+                    </div>
+
+                {{/if}}
+
+            </div>
+            <div class="col-sm-9">
+                {{{body}}}
+            </div>
+        </div>
+    </div>
+    <!-- CDN of BS4 JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"  ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+    {{{_sections.js}}}
+</body>
+</html>

@@ -1,0 +1,60 @@
+<div class="card">
+  <h5 class="card-header">Products</h5>
+  <div class="card-body">
+      {{#if this.empty}}
+        <p>Không có dữ liệu</p>
+      {{else}}
+         <div class="card-body">
+             <div class="row">
+                 {{#each this.products}}
+                    <div class="col-sm-4 mb-3">
+                        <div class="card h-100">
+                        <img src="/public/imgs/sp/{{ProID}}/main_thumbs.jpg" alt="{{ProName}}" title="{{ProName}}: {{Price}}vnd">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ProName}}</h5>
+                                <h4 class="card-title text-danger">{{number_format Price}}</h4>
+                                <p class="card-text">{{TinyDes}}</p>
+                            </div>
+                            <div class="card-footer">
+                                <a class="btn btn-outline-primary" href="javascript:;" role="button">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                    Details
+                                </a>
+                                <a class="btn btn-outline-success" href="javascript:;" role="button">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    Add
+                                </a>
+                            </div>
+                        </div>
+                    </div>                    
+                 {{/each}}
+             </div><!--end row-->
+
+            <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item {{#if pageStart}}disabled{{/if}}">
+                <a class="page-link" href="?page={{prev}}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                </li>
+
+                {{#each this.pages}} 
+                    <li class="page-item  {{#if isActive}}active{{/if}}"><a class="page-link" href="?page={{value}}">{{value}}</a></li>
+                {{/each}}
+
+                <li class="page-item {{#if pageEnd}}disabled{{/if}}">
+                    <a class="page-link" href="?page={{next}}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+            </nav>
+
+         </div>
+      {{/if}}
+
+    
+  </div>
+</div>

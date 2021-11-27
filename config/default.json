@@ -1,0 +1,12 @@
+{
+    "mysql":{
+        "host "    : "localhost",
+        "user"     : "root",
+        "password" : "",
+        "database" : "qlbh",
+        "connectionLimit" : 10
+    },
+    "pagination":{
+        "limit" :3
+    }
+}

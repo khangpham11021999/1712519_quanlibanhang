@@ -1,0 +1,41 @@
+Xin chào mọi người, sau đây mình xin demo trang web bán hàng mà mình
+xây dựng dựa trên kiến thức về NODEJS, ExpressJS,Handlebar,
+Jquery, Bootstrap4, html, css, và phần cơ sở dữ liệu mình làm dựa trên
+mysql!
+
+Trước tiên mình sẽ show cho mọi người xem sơ về Daatabase ,
+Trong phần cơ sở dữ liệu, mình có để 1 vài table trống để xử lí 
+tình huống không có dữ liệu, và trong bản User mình đã tạo sẵn 
+1 tài khoản cho admin của hệ thống
+
+Bây giờ mình sẽ demo các chức năng của trang web mình xây dựng
+theo trình tự file exel mình soạn sẵn, mọi người theo dõi nhé!!!
+
+Ở chức năng cho phép admin đọc dữ liệu từ DB, mình sẽ cho admin
+xem thông tin từ bảng categories và bảng products
+
+Tiêp theo mình sẽ thêm dữ liệu về database từ phía admin
+=> check lại database nhé!!
+Bây giờ mình sẽ xóa dữ liệu vừa thêm để demo cho chức năng admin được
+phép xóa nhé!!
+
+Tiếp theo là admin sẽ cập nhật thông tin qua bản CATEGORIES:
+
+Ok, tiếp theo mình sẽ demo các chức năng dành cho user!!
+
+1. Cho phép đăng ki tài khoản (trường hop thong tin chính xác.)
+2. Bây giờ mình sẽ đăng xuất ra và test chức năng đăng kí thông tin tài khoản nếu dữ liệu đưa vô không chính xác!!
+=>> Khi thông tin bị không chính xác thì phía giao diện đã được báo cho người dùng!!!!!
+3. Như vậy, trong trường hợp người dùng cố ý click đăng kí khi thông tin không chính xác thì sao??
+=>>tiêp tục test =>> báo lỗi cho user và không thêm thông tin trên cơ sở dữ liệu =>> đồng thời bắt user nhập thông tin để đăng kí lại!!!!
+
+4. Nếu tài khoản user đã tồn tại, mình sẽ không cho người dùng sử dụng username đó để đăng kí nữa và báo lỗi!!!! => okey
+
+5. Trong trường hợp người dùng đang ở trạng thái login và ở trang cụ thể nào đó => sau đó muốn log out=> mình sẽ cho user log out tại trang ngay ở trang thái trươc đó
+6. Trong tình huông user chưa đăng nhập vào hệ thống và cố ý vào đường dẫn profile =>> hệ thống sẽ không cho phép và yêu cầu login!!! ok!!!
+
+7. Chức năng phân trang giao diện cho các sản phẩm phía user !!
+
+và cuối cùng: project này mình xây dựng theo mô hình MVC để tổ chức mã nguồn !!!!
+
+Cảm ơn mọi người đã quan sát !!!
